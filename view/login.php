@@ -10,6 +10,16 @@
     <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
     <link rel="stylesheet" type="text/css" href="../resources/css/css/all.min.css">
 </head>
+<?php
+session_start();
+if(!empty($_SESSION['id_tipo'])){
+    header('Location: ../controller/LoginController.php');
+}else{
+session_destroy();
+
+
+?>
+
 <body>
     <img class="wave" src="../img/wave.png" alt="">
     <div class="contenedor">
@@ -18,7 +28,7 @@
         </div>
 
         <div class="contenido-login">
-            <form action="">
+            <form action="../controller/LoginController.php" method="post">
                 <img src="../img/logo.png" alt="">
                 <h2>Farmacia</h2>
                 <div class="input-div dni">
@@ -54,4 +64,12 @@
     </div>
     
 </body>
+
+    <script src="../resources/js/login.js"></script>
 </html>
+
+<?php
+
+}
+
+?>
